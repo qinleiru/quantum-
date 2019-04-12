@@ -8,20 +8,17 @@ import com.quantum.measure.ProjectiveMeasure;
 import com.quantum.oparate.QuantumOperation;
 import com.quantum.state.CommonState;
 import com.quantum.state.DoubleState;
+import com.quantum.state.MultiState;
 import com.quantum.state.SingleState;
 import org.ujmp.core.DenseMatrix;
 import org.ujmp.core.Matrix;
 
 import java.util.ArrayList;
 
-import static com.protocols.HPQIS.HPQIS.OMEGA;
-import static com.protocols.HPQIS.HPQIS.coefficients;
-import static com.protocols.HPQIS.HPQIS.systemState;
+import static com.protocols.HPQIS.HPQIS.*;
 
 
 public class HighAgent extends AbstractAgent {
-    public boolean POVMResult=true;  //用于存储POVM测量之后的结果
-
     /**
      * 代理者对手中的所有粒子进行单粒子测量
      * @param measures
@@ -33,13 +30,15 @@ public class HighAgent extends AbstractAgent {
         int result=0;
         switch (index){
             case 1:
-                for (int i=0;i<particleName.size();i++){
-                    measureResult.put(particleName.get(i), ProjectiveMeasure.measureBaseX(systemState,particleName.get(i)));
+                for (int i=0;i<systemStates.size();i++){
+                    measureResult.put(particleName.get(i*2), ProjectiveMeasure.measureBaseX(systemStates.get(i),particleName.get(i*2)));
+                    measureResult.put(particleName.get(i*2+1), ProjectiveMeasure.measureBaseX(systemStates.get(i),particleName.get(i*2+1)));
                 }
                 break;
             case 2:
-                for (int i=0;i<particleName.size();i++){
-                    measureResult.put(particleName.get(i), ProjectiveMeasure.measureBaseZ(systemState,particleName.get(i)));
+                for (int i=0;i<systemStates.size();i++){
+                    measureResult.put(particleName.get(i*2), ProjectiveMeasure.measureBaseZ(systemStates.get(i),particleName.get(i*2)));
+                    measureResult.put(particleName.get(i*2+1), ProjectiveMeasure.measureBaseZ(systemStates.get(i),particleName.get(i*2+1)));
                 }
                 break;
         }
@@ -50,396 +49,393 @@ public class HighAgent extends AbstractAgent {
      */
     @Override
     public void restore() {
-        int resultAliceX = HPQIS.resultX;   //粒子x、粒子1的Bell态的测量结果
-        int resultAliceY = HPQIS.resultY;   //粒子y、粒子5的Bell态的测量结果
-        int lowAgentParticle1;   //权限低的clusterState1态中的粒子的测量结果
-        int lowAgentParticle2;   //权限低的clusterState2态中的粒子的测量结果
-        if (measureResult.keySet().contains("3")) {
-            lowAgentParticle1 = measureResult.get("3");
-        } else {
-            lowAgentParticle1 = measureResult.get("4");
-        }
-        if (measureResult.keySet().contains("7")) {
-            lowAgentParticle2 = measureResult.get("7");
-        } else {
-            lowAgentParticle2 = measureResult.get("8");
-        }
-        /**
-         * 根据发送者的测量结果以及权限低的代理者的测量结果，对自己手中的秘密量子比特进行操作
-         */
-//        System.out.println("++++++++粒子X、粒子1的Bell态的测量结果为"+resultAliceX);
-//        System.out.println("++++++++粒子Y、粒子5的Bell态的测量结果为"+resultAliceY);
-        System.out.println("++++++++权限低的代理者的第一个粒子测量结果为"+lowAgentParticle1+" 第二个粒子的测量结果为"+lowAgentParticle2);
-        if (resultAliceX == 1 && resultAliceY == 1) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+        for (int i = 0; i < systemStates.size(); i++) {
+            int resultAliceX = resultXs.get(i);
+            int resultAliceY = resultYs.get(i);
+            int lowAgentParticle1;   //权限低的clusterState1态中的粒子的测量结果
+            int lowAgentParticle2;   //权限低的clusterState2态中的粒子的测量结果
+            if (measureResult.keySet().contains("3" + i)) {
+                lowAgentParticle1 = measureResult.get("3" + i);
+            } else {
+                lowAgentParticle1 = measureResult.get("4" + i);
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if (resultAliceX == 1 && resultAliceY == 3) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState,  particleName.get(1), QuantumGate.Operator_I);
-            }
-        }
-        if (resultAliceX == 1 && resultAliceY == 2) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if (resultAliceX == 1 && resultAliceY == 4) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-        }
-        if (resultAliceX == 3 && resultAliceY == 1) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if (resultAliceX == 3 && resultAliceY == 3) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (measureResult.keySet().contains("7" + i)) {
+                lowAgentParticle2 = measureResult.get("7" + i);
+            } else {
+                lowAgentParticle2 = measureResult.get("8" + i);
             }
 
-        }
-        if (resultAliceX == 3 && resultAliceY == 2) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 1 && resultAliceY == 1) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), particleName.get(1), QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 1 && resultAliceY == 3) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), particleName.get(1), QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), particleName.get(1), QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), particleName.get(1), QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), particleName.get(1), QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 1 && resultAliceY == 2) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 1 && resultAliceY == 4) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
             }
-        }
-        if (resultAliceX == 3 && resultAliceY == 4) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 3 && resultAliceY == 1) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-            }
-        }
-        if (resultAliceX == 2 && resultAliceY == 1) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if (resultAliceX == 2 && resultAliceY == 3) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-        }
-        if (resultAliceX == 2 && resultAliceY == 2) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if (resultAliceX == 2 && resultAliceY == 4) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-        }
-        if (resultAliceX == 4 && resultAliceY == 1) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
+            if (resultAliceX == 3 && resultAliceY == 3) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
 
-        }
-        if (resultAliceX == 4 && resultAliceY == 3) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 3 && resultAliceY == 2) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 3 && resultAliceY == 4) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 2 && resultAliceY == 1) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-        }
-        if (resultAliceX == 4 && resultAliceY == 2) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 2 && resultAliceY == 3) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 2 && resultAliceY == 2) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 2 && resultAliceY == 4) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 4 && resultAliceY == 1) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+
             }
-        }
-        if (resultAliceX == 4 && resultAliceY == 4) {
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 4 && resultAliceY == 3) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (resultAliceX == 4 && resultAliceY == 2) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (resultAliceX == 4 && resultAliceY == 4) {
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 0 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
             }
-            if (lowAgentParticle1 == 1 && lowAgentParticle2 == 1) {
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            double a = coefficients[0];
+            double b = coefficients[1];
+            double c = coefficients[2];
+            double d = coefficients[3];
+            int result = performPOVM(a * c, a * d, b * c, b * d,i);
+            resultPOVM.add(result);
+            if (result == 4) {
+                break;
             }
-        }
-        double a=coefficients[0];
-        double b=coefficients[1];
-        double c=coefficients[2];
-        double d=coefficients[3];
-        int result=performPOVM(a*c,a*d,b*c,b*d);
-        if(result==4){
-            POVMResult=false;
-            System.out.println("(((((((((((((测量失败)))))))))))");
-        }
-        //POVM测量之后进行量子操作
-        if((resultAliceX == 1 && resultAliceY == 1)||(resultAliceX == 1 && resultAliceY == 3)||(resultAliceX == 3 && resultAliceY == 1)||(resultAliceX == 3 && resultAliceY == 3)){
-            if (result==0){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            //POVM测量之后进行量子操作
+            if (( resultAliceX == 1 && resultAliceY == 1 ) || ( resultAliceX == 1 && resultAliceY == 3 ) || ( resultAliceX == 3 && resultAliceY == 1 ) || ( resultAliceX == 3 && resultAliceY == 3 )) {
+                if (result == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (result == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (result == 2) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (result == 3) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if(result==1){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
+            if (( resultAliceX == 1 && resultAliceY == 2 ) || ( resultAliceX == 1 && resultAliceY == 4 ) || ( resultAliceX == 3 && resultAliceY == 2 ) || ( resultAliceX == 3 && resultAliceY == 4 )) {
+                if (result == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_X);
+                }
+                if (result == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_X);
+                }
+                if (result == 2) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_I);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_iY);
+                }
+                if (result == 3) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_Z);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_iY);
+                }
             }
-            if(result==2){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
+            if (( resultAliceX == 2 && resultAliceY == 1 ) || ( resultAliceX == 2 && resultAliceY == 3 ) || ( resultAliceX == 4 && resultAliceY == 1 ) || ( resultAliceX == 4 && resultAliceY == 3 )) {
+                if (result == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_X);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (result == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_iY);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_I);
+                }
+                if (result == 2) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_X);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
+                if (result == 3) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_iY);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_Z);
+                }
             }
-            if (result==3){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if((resultAliceX == 1 && resultAliceY == 2)||(resultAliceX == 1 && resultAliceY == 4)||(resultAliceX == 3 && resultAliceY == 2)||(resultAliceX == 3 && resultAliceY == 4)){
-            if (result==0){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_X);
-            }
-            if(result==1){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_X);
-            }
-            if(result==2){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_I);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_iY);
-            }
-            if (result==3){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_Z);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_iY);
-            }
-        }
-        if ((resultAliceX == 2 && resultAliceY == 1)||(resultAliceX == 2 && resultAliceY == 3)|| (resultAliceX == 4 && resultAliceY == 1)|| (resultAliceX == 4 && resultAliceY == 3)){
-            if (result==0){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_X);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if(result==1){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_iY);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_I);
-            }
-            if(result==2){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_X);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-            if (result==3){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_iY);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_Z);
-            }
-        }
-        if((resultAliceX == 2 && resultAliceY == 2)||(resultAliceX == 2 && resultAliceY == 4)|| (resultAliceX == 4 && resultAliceY == 2)|| (resultAliceX == 4 && resultAliceY == 4)){
-            if (result==0){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_X);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_X);
-            }
-            if(result==1){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_iY);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_X);
-            }
-            if(result==2){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_X);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_iY);
-            }
-            if (result==3){
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(0), QuantumGate.Operator_iY);
-                QuantumOperation.quantumSinglePerform(systemState, particleName.get(1), QuantumGate.Operator_iY);
+            if (( resultAliceX == 2 && resultAliceY == 2 ) || ( resultAliceX == 2 && resultAliceY == 4 ) || ( resultAliceX == 4 && resultAliceY == 2 ) || ( resultAliceX == 4 && resultAliceY == 4 )) {
+                if (result == 0) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_X);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_X);
+                }
+                if (result == 1) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_iY);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_X);
+                }
+                if (result == 2) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_X);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_iY);
+                }
+                if (result == 3) {
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "2" + i, QuantumGate.Operator_iY);
+                    QuantumOperation.quantumSinglePerform(systemStates.get(i), "6" + i, QuantumGate.Operator_iY);
+                }
             }
         }
     }
@@ -513,17 +509,19 @@ public class HighAgent extends AbstractAgent {
         return oparators;
     }
 
-    public int performPOVM(double argu1,double argu2,double argu3,double argu4){
+    //todo:需要验证引用的部分是否正确
+    public int performPOVM(double argu1, double argu2, double argu3, double argu4,int i){
         //引入辅助粒子m、辅助粒子n
         SingleState singleStateM= CommonState.Zero_State;
         singleStateM.setParticlesName(1,"m");
+        MultiState systemState=systemStates.get(i);
         systemState=QuantumOperation.quantumTensor(systemState,singleStateM);
         SingleState singleStateN=CommonState.Zero_State;
         singleStateN.setParticlesName(1,"n");
         systemState=QuantumOperation.quantumTensor(systemState,singleStateN);
         //进行CNOT操作
-        QuantumOperation.quantumDoublePerform(systemState,particleName.get(0),"m",QuantumGate.Operator_CNOT);
-        QuantumOperation.quantumDoublePerform(systemState,particleName.get(1),"n",QuantumGate.Operator_CNOT);
+        QuantumOperation.quantumDoublePerform(systemState,"2"+i,"m",QuantumGate.Operator_CNOT);
+        QuantumOperation.quantumDoublePerform(systemState,"6"+i,"n",QuantumGate.Operator_CNOT);
         //构造要区分的量子比特
         ArrayList<DoubleState> doubleStates=getDiscrimStates(argu1,argu2,argu3,argu4);
         //构造使用的算子

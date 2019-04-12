@@ -132,22 +132,9 @@ public class Sender extends AbstractSender {
         for(int i=0;i<secretStates.size();i++){
             systemStates.add(QuantumOperation.quantumTensor(secretStates.get(i),entangledStates.get(i)));
         }
-        /*
-           测试代码
-         */
-//        System.out.println("初始状态系统的态为");
-//        System.out.println(systemState.showBinaryState());
-//        systemState.showParticleName();
-        //Alice对粒子x和粒子A，进行Bell态测量，并公布测量结果
         for(int i=0;i<systemStates.size();i++){
             resultSAs.add(ProjectiveMeasure.measureBeseBell(systemStates.get(i),"S"+i,"A"+i));
         }
         printMessage+=df.format(System.currentTimeMillis())+" "+ "Alice对手中的粒子序列S、粒子序列A进行Bell态测量，并公布测量结果";
-        /*
-           此部分的代码是测试的内容
-         */
-//        System.out.println("发送者测量完成之后系统的态为");
-//        System.out.println(systemState.showBinaryState());
-//        systemState.showParticleName();
     }
 }

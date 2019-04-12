@@ -4,7 +4,23 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS2/Sender.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0107f73b-b637-466b-ab78-4661faee2752" name="Default Changelist" comment="" />
+    <list default="true" id="0107f73b-b637-466b-ab78-4661faee2752" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HDQIS/HDQIS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HDQIS/HDQIS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HDQIS/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HDQIS/Sender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/HPQIS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/HPQIS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/HighAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/HighAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/LowAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/LowAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/protocols/HPQIS/Sender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/quantum/tools/QuantumTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/quantum/tools/QuantumTools.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,14 +138,47 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2060879906">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="29" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="29" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="2058" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2058" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/QuantumSimulation.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="14100">
+              <caret line="721" column="18" selection-start-line="721" selection-start-column="8" selection-end-line="721" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,10 +187,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="600">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/Measures.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractSender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/LowAgent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="111" column="92" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,58 +231,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#secret#0;class#Sender#0" />
-                <element signature="method#prepareState#0;class#Sender#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/ProjectiveMeasure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationTabPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/oparate/QuantumOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="115" selection-start-line="115" selection-end-line="115" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/DoSimulation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="117">
+              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -214,26 +243,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="61" column="84" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
+            <state relative-caret-position="20">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9020#9276#0" />
-                <element signature="e#9282#9576#0" />
-                <element signature="e#9581#9834#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/CommPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HighAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="64" column="62" selection-start-line="64" selection-start-column="62" selection-end-line="64" selection-end-column="62" />
+            <state relative-caret-position="80">
+              <caret line="58" column="15" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/DoSimulation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="33" selection-start-line="33" selection-end-line="38" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -253,13 +300,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>public static void main\(String\[\] args\) \{\n            float Max \= 100\, Min \= 1\.0f\;\n            for \(int i \= 0\; i \&lt; 10\; i\+\+\) \{\n                BigDecimal db \= new BigDecimal\(Math\.random\(\) \* \(Max \- Min\) \+ Min\)\;\n                System\.out\.println\(db\.setScale\(30\, BigDecimal\.ROUND_HALF_UP\)\/\/ 保留30位小数并四舍五入  \n                        \.toString\(\)\)\;\n            \}\n        \}</find>
-      <find>nor</find>
-      <find>return</find>
-      <find>quantumGate</find>
-      <find>测量算子为</find>
-      <find>index</find>
-      <find>b;</find>
       <find>getCoefficients</find>
       <find>restore</find>
       <find>result</find>
@@ -283,6 +323,13 @@
       <find>\n\n</find>
       <find>sendSecret</find>
       <find>序列序列</find>
+      <find>helpRestore</find>
+      <find>QuantumOperation.quantumSinglePerform(systemStates.get(i), &quot;2&quot;+i Q</find>
+      <find>sendResult</find>
+      <find>performPOVM</find>
+      <find>performOperation(2, result);</find>
+      <find>performOperation(3, result);</find>
+      <find>performOperation(4, result);</find>
     </findStrings>
     <replaceStrings>
       <replace>particle2Name</replace>
@@ -293,10 +340,15 @@
       <replace>\n</replace>
       <replace>手中的粒子序列</replace>
       <replace>序列</replace>
+      <replace>systemStates.get(i)</replace>
+      <replace>QuantumOperation.quantumSinglePerform(systemStates.get(i), &quot;2&quot;+i ,Q</replace>
+      <replace>QuantumOperation.quantumSinglePerform(systemStates.get(i), &quot;6&quot;+i</replace>
+      <replace>QuantumOperation.quantumSinglePerform(systemStates.get(i),particle2Name,Q</replace>
+      <replace>performOperation(4, result,i,particle1Name,particle2Name);</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/quantum-" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -320,8 +372,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS2/HDQIS2.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/quantum/oparate/QuantumOperationTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/quantum/encode/EncodeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/DataPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/pojo/DataPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/dao/HpqisDAO.java" />
@@ -338,20 +388,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/quantum/measure/POVMMeasure.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/quantum/measure/BellResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/quantum/gate/MeasureResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/quantum/AbstractMain.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/quantum/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractSender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractAgent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HighAgent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/LowAgent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/simulation/CommPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/simulation/DoSimulation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/simulation/QuantumSimulation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java" />
       </list>
     </option>
   </component>
@@ -372,10 +424,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="37" />
-    <option name="y" value="22" />
+    <option name="x" value="-41" />
+    <option name="y" value="64" />
     <option name="width" value="1386" />
-    <option name="height" value="710" />
+    <option name="height" value="703" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -409,68 +461,47 @@
         <subPane>
           <expand>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="protocols" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="protocols" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="protocols" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -479,8 +510,8 @@
               <item name="HDQIS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -489,28 +520,18 @@
               <item name="HPQIS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="protocols" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="QuantumTeleportation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="protocols" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -519,8 +540,8 @@
               <item name="role" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -528,48 +549,8 @@
               <item name="quantum" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="quantum" type="462c0819:PsiDirectoryNode" />
-              <item name="gate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="quantum" type="462c0819:PsiDirectoryNode" />
-              <item name="measure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="quantum" type="462c0819:PsiDirectoryNode" />
-              <item name="oparate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="quantum" type="462c0819:PsiDirectoryNode" />
-              <item name="state" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -578,8 +559,8 @@
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -587,8 +568,8 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -597,87 +578,14 @@
               <item name="component" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="quantum-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantum-" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="simulation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="protocols" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="protocols" type="462c0819:PsiDirectoryNode" />
-              <item name="HDQIS2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="quantum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -690,7 +598,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="8" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552989218926" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553742329902" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -907,35 +815,36 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.17339668" side_tool="true" visible="true" weight="0.30559757" />
+      <window_info id="Structure" order="0" sideWeight="0.50163937" side_tool="true" visible="true" weight="0.2700454" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" sideWeight="0.5027174" weight="0.29082426" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.82660335" visible="true" weight="0.30559757" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49836066" visible="true" weight="0.2700454" />
       <window_info active="true" id="simpleUML" order="7" sideWeight="0.8325688" visible="true" weight="0.77382755" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49092284" weight="0.35081968" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84871405" weight="0.2262295" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84568834" visible="true" weight="0.036065575" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8419062" weight="0.46557376" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49621785" weight="0.7852459" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.7934947" visible="true" weight="0.30983606" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.2065053" side_tool="true" visible="true" weight="0.30983606" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.7919818" weight="0.30819672" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.15431164" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4750378" weight="0.3852459" />
-      <window_info anchor="bottom" id="Statistic" order="11" sideWeight="0.82980335" weight="0.15081967" />
+      <window_info anchor="bottom" id="Statistic" order="11" sideWeight="0.82980335" weight="0.11803278" />
+      <window_info anchor="bottom" id="Sequence" order="12" weight="1.0" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.50285715" side_tool="true" visible="true" weight="0.0030257185" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" sideWeight="0.49714285" weight="0.002269289" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" visible="true" weight="0.0" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.0098335855" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.0098335855" />
       <window_info anchor="right" id="UML design tool window" order="9" weight="0.067226894" />
     </layout>
   </component>
@@ -1013,7 +922,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java</url>
-          <line>90</line>
+          <line>91</line>
           <properties />
           <option name="timeStamp" value="226" />
         </line-breakpoint>
@@ -1043,7 +952,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java</url>
-          <line>344</line>
+          <line>345</line>
           <properties />
           <option name="timeStamp" value="232" />
         </line-breakpoint>
@@ -1055,9 +964,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java</url>
-          <line>261</line>
+          <line>256</line>
           <properties />
           <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="238" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java</url>
+          <line>140</line>
+          <properties />
+          <option name="timeStamp" value="239" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1110,16 +1031,6 @@
           <folding>
             <element signature="method#tensor#1;class#MathOperation#0" />
             <element signature="method#tensor#2;class#MathOperation#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HpqisService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1190,50 +1101,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/state/ClusterState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/state/CommonState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/AnalyPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="45" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="522" column="19" selection-start-line="522" selection-start-column="8" selection-end-line="522" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1550583831436" expanded="true" signature="2621:3866" ph="{...}" />
-            <marker date="1550583831436" expanded="true" signature="3919:5170" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="5223:6466" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="6519:7762" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="7815:9058" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="9111:10355" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="10408:11651" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="11704:12947" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="13000:14243" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="14296:15539" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="15592:16835" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="16888:18131" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="18184:19428" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="19481:20724" ph="{...}" />
-            <marker date="1550583831436" expanded="false" signature="20777:22020" ph="{...}" />
-            <marker date="1550583831436" expanded="true" signature="22073:23316" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1245,36 +1116,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/BellResult.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/Measures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="329" column="182" selection-start-line="329" selection-start-column="182" selection-end-line="329" selection-end-column="182" />
-          <folding>
-            <element signature="docComment;method#getOwnSate#0;class#HPQIS#0" />
-            <element signature="method#getOwnSate#0;class#HPQIS#0" />
-            <element signature="method#strToBinary#0;class#HPQIS#0" />
-            <element signature="method#binaryToStr#0;class#HPQIS#0" />
-            <element signature="method#binstrToIntArray#0;class#HPQIS#0" />
-            <element signature="method#binstrToChar#0;class#HPQIS#0" />
-            <marker date="1552232105631" expanded="true" signature="3195:5419" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14060">
-          <caret line="720" column="21" selection-start-line="720" selection-start-column="15" selection-end-line="720" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/gate/QuantumGate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1314,9 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1355,71 +1193,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractAgent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/QuantumSimulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="e#252#260#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HighAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="180">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/LowAgent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="33" selection-start-line="33" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="33" selection-start-line="33" selection-start-column="2" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/ProjectiveMeasure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
+        <state relative-caret-position="1960">
           <caret line="100" selection-start-line="100" selection-end-line="100" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/oparate/QuantumOperation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationTabPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="300">
+          <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/state/ClusterState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HpqisService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HPQIS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding>
+            <element signature="docComment;method#getOwnSate#0;class#HPQIS#0" />
+            <element signature="method#getOwnSate#0;class#HPQIS#0" />
+            <element signature="method#strToBinary#0;class#HPQIS#0" />
+            <element signature="method#binaryToStr#0;class#HPQIS#0" />
+            <element signature="method#binstrToIntArray#0;class#HPQIS#0" />
+            <element signature="method#binstrToChar#0;class#HPQIS#0" />
+            <marker date="1553054332913" expanded="true" signature="2454:3506" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/CommPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="1160">
           <caret line="64" column="62" selection-start-line="64" selection-start-column="62" selection-end-line="64" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/HighAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="51" column="40" selection-start-line="51" selection-end-line="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/state/CommonState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="940">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/oparate/QuantumOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1400">
+          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/LowAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14100">
+          <caret line="721" column="18" selection-start-line="721" selection-start-column="8" selection-end-line="721" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/measure/Measures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/role/AbstractSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1428,7 +1331,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/DoSimulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="480">
           <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1436,61 +1339,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationTabPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/quantum/tools/QuantumTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/SimulationFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/simulation/QuantumSimulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HPQIS/Sender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="560">
+          <caret line="33" selection-start-line="33" selection-end-line="38" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HDQIS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="61" column="84" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
+        <state relative-caret-position="20">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9020#9276#0" />
-            <element signature="e#9282#9576#0" />
-            <element signature="e#9581#9834#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/HighAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="58" column="15" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/LowAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="111" column="92" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/protocols/HDQIS/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        <state relative-caret-position="117">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#secret#0;class#Sender#0" />
-            <element signature="method#prepareState#0;class#Sender#0" />
           </folding>
         </state>
       </provider>

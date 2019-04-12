@@ -254,9 +254,4 @@ public class HDQIS {
         }
         return (char) sum;
     }
-
-    public static void main(String args[]) {
-        //对字符串进行补传
-        System.out.println(binaryToStr("0101001100010111"));
-    }
 }

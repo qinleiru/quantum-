@@ -38,9 +38,6 @@ public class Sender extends AbstractSender {
                 sendMessage[i] = "0" + sendMessage[i];
             }
         }
-//        for (int i = 0; i < sendMessage.length; i++) {
-//            System.out.println(sendMessage[i]);
-//        }
         int index=0;
         for (int i = 0; i < sendMessage.length; i++) {
             for (int j = 0; j < sendMessage[i].length(); j++) {
@@ -58,13 +55,6 @@ public class Sender extends AbstractSender {
                 }
             }
         }
-        /**
-         * 测试代码
-         */
-//        //遍历ArrayList中的元素
-//        for (int i = 0; i < secretStates.size(); i++) {
-//                System.out.println(QuantumTools.showBinaryState(secretStates.get(i)));
-//        }
     }
 
     /**

@@ -75,8 +75,6 @@ public class HDQIS {
             for (int i = 0; i < recieveStates.size(); i++) {
                 System.out.println(QuantumTools.showBinaryState(recieveStates.get(i)));
             }
-//            recieveState = getOwnSate(systemState, David.particleName);
-//            textArea.setCommText(df.format(System.currentTimeMillis()) + " " + "David恢复的秘密量子比特" + QuantumTools.showBinaryState(recieveState));
         } else if ("Bob".equals(agents)) {
             //协议中权限低的代理者来恢复秘密量子比特
             textArea.setCommText(df.format(System.currentTimeMillis()) + " " + "Bob恢复秘密量子比特");
@@ -190,34 +188,6 @@ public class HDQIS {
         System.out.println(commResult);
         return binaryToStr(commResult);
     }
-//        String sendMessage[]=strToBinary(secret).split(" ");
-//        String commResult="";
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//        textArea.setCommText(" +++++++++++Alice准备纠缠信道++++++++++++");
-//        textArea.setCommText(df.format(System.currentTimeMillis())  + " Alice准备多个四粒子纠缠簇态");
-//        textArea.setCommText(df.format(System.currentTimeMillis())  + " Alice将粒子序列D发送给David");
-//        textArea.setCommText(df.format(System.currentTimeMillis())  + " Alice将粒子序列B发送给Bob");
-//        textArea.setCommText(df.format(System.currentTimeMillis())  + " Alice将粒子序列C发送给Charlie");
-//        textArea.setCommText(" +++++++++++纠缠信道准备完成++++++++++++");
-//
-//        //每一个字符
-//        for (int i = 0; i < sendMessage.length; i++) {
-//            //每个二进制位
-//            for (int j = 0; j < sendMessage[i].length(); j++) {
-//                SingleState singleState = run(textArea, agents, sendMessage[i].charAt(j));
-//                if (ProjectiveMeasure.measureBaseZ(singleState, singleState.getParticlesName().get(0)) == 0) {
-//                    commResult += "0";
-//                } else {
-//                    commResult += "1";
-//                }
-//            }
-//            commResult+=" ";
-//        }
-//        System.out.println("通信得到的二进制字符串的结果为" + commResult);
-//        System.out.println("传送的秘密消息为" + binaryToStr(commResult));
-//        return binaryToStr(commResult);
-//        return null;
-//    }
 
     public static String strToBinary(String str) {
         char[] strChar = str.toCharArray();
